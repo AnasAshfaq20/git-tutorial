@@ -1,0 +1,326 @@
+What is git?
+Git. Zero experience to professional level in one tutorial. Git is a tool that's used in almost every software
+engineering job. If you want to get a job you're going to need to know git and that's why we're learning it. So we're going to start with this tutorial right away with the most
+important question: what is git. So if you've ever used Google Docs or Microsoft Word they have a really useful feature called
+the version history. So once in a while, Google Docs will save a copy of your document at that point in time and then you can find all the copies of
+your document in a version history like this. And this makes it easy for you to go back to previous versions of your
+document or to restore your document back to a previous version in case you mess up. git is basically the same thing. It's a
+version history for our code, so it allows us to save past versions of every file of our code, and then whenever we need to, we can view
+the code that we had in the past, or we can restore all of our code back to a past version. It's basically a safety net when we're
+developing software. But that's just the tip of the iceberg. Version history is a small part of what git can do
+and later on we're going to learn additional skills like github and branching that's going to take you to that professional level. But for now, we're going to start off by learning how to
+use git to recreate the Google Docs version history feature for our code. To follow along with this
+tutorial you just need to have written some code before. You don't need any prior experience. I'm going to explain every step that we do.
+You can find the different sections of this tutorial in the description, in the timeline, or by clicking here. With that said let's get started with
+the tutorial. First, let's learn how to install git. If you already have git
+How to Install Git
+installed, you can skip to this time in the video. The installation process is pretty simple you just have to go to this
+website: git-scm.com/downloads. I'll leave a link to that in the description. And then what you're going
+to do is to pick the operating system that you have. I'm going to start with mac os first. Windows users you can skip to this time
+in the video. For mac os users we're going to go into this section and you'll see we have several options
+Mac Installation
+here. So the recommended option for installing git is to install xcode.
+So there are two ways to do that: the first way is to click this icon, which will open spotlight, and then we're going to search for
+Terminal, and we're going to open Terminal. If you find that the font is too small you can go here,
+and then click here to change the font size. So now that we have Terminal open, we're going to type in git.
+And then we're going to press enter. So if you see a message like this, that means that git has already been installed
+and you can skip to this time in the video. If you see a pop-up like this, go ahead and press install and that will install git for you.
+When that installation finishes we're going to close the Terminal and we're going to reopen it. And then we're going to type in git
+again and press enter. So you should see a message like this, which means that git has been installed. If that didn't work for you, or the
+pop-up didn't show up, you can also open the app store, and then search for xcode, and then install xcode.
+After xcode finishes installing, we're going to open it for the first time, and then we're going to close and restart our Terminal,
+and then we're going to type in git and press enter again. Now git should have been installed, and if it doesn't work let me know in the comments
+and we'll figure out what's going on. For windows the installation is pretty simple, we just have to go to this windows
+Windows Installation
+section and the installer will download automatically. Ff it doesn't you can also click this link.
+After the installer finishes downloading, we're going to open it, and then we're just going to run the installer. So we can keep all the default
+options. Just click next until you're finished installing. After that's done, we're going to search for a program called
+PowerShell we're going to open windows PowerShell. If you find that the font is too small you can click here
+and click here to change the font. So once PowerShell is open we're going to type in git and press enter.
+So you should see a message like this, which means that git has been installed. If you don't see that message let me know in the comments and we'll try to
+figure out what's going on.
+Project Setup
+Now that we've installed git, we're ready to learn how to use it to build this version history for our code. So i'm going to be doing this tutorial
+on a mac, but these steps are the same whether you're using a mac or a windows computer. So the first step that we need to do is to have some code
+to practice with. So if you have your own code or your own project that you want to use, feel free to use that otherwise we're going to create some code quickly right now. So I'm going to
+go to my desktop and create a new folder, that's going to contain all of our code. I'm going to call it git-tutorial and then I'm going to open this
+folder in my code editor.
+Okay so I'm just going to type out some example code that we can practice with, if you want to copy this code feel free to pause the video if you need to.
+Okay so this is our example code. We just have a console.log statement with a file name and then a console.log with version 1.
+Just so that we can track which version that we're on since we are building a version history. It's pretty simple we just need
+something to practice with. So git is mainly used from the command line, which is Terminal on mac
+Git Setup
+or PowerShell on windows. To open the command line on a mac, we're going to click this icon, which will open Spotlight. And then we're going
+to search for Terminal, and we're going to open Terminal. To open the command line on windows
+we're going to search in the start menu for the program PowerShell, and then we're going to open windows
+PowerShell. So let's go ahead and open that up. So you don't need to know a lot
+about the command line to use git, but you do need to understand one concept. The command line is where we can give commands or instructions for the
+computer to follow. So for example I can give this command ls and when I press enter the computer will follow this command,
+and list the files and folders that are in the current folder. So notice that I said current folder. So the concept you have to understand is
+that all of the commands run inside a specific folder. So when we first open up the command
+line the commands are running inside a special folder called the $HOME folder. So in order to use git, we need to change the folder that the
+commands are running inside of to this folder which contains all of our code. So to do that we can give this command,
+cd, which stands for change directory. Directory is the same thing as a folder. And we're going to change the directory to tilde slash
+desktop slash git tutorial. And let's verify that we're in the right
+place by giving the ls command again to list the files and folders that are in the current folder. So as you can see we have config.js and
+source here which matches what we have in our code editor so we know we're in the right place. So one last thing you have to know about
+the command line is that if you ever close the command line and then you restart it you're going to start inside the home folder again.
+So make sure that the first step you do is to change directory back into this folder which contains all our code.
+And that's it now we're ready to learn some git.
+Creating a Version
+Now let's create the first version of our code in the version history. So the first thing we need to do, is to set up git inside this folder that
+contains our code. And to do that we're going to give this command: git init, and to run the command we're going
+to press enter. So what this does is that it sets up git inside this folder, and git is now tracking all of the files
+in this folder for changes. And don't worry about memorizing these commands because i'm going to put all the commands that I teach you in a cheat
+sheet that you can find in the description below. So the next step we're going to do, is we're going to run another command
+called git status. And what this does is that it tells us what changes have been made since our previous version, and since we
+don't have a version right now we're just going to see that we have some new files. So let's go ahead and run this command.
+So there's a lot of text that comes out the most important part is here. So git is just telling us that there is a new file called config.js
+and a new folder called src that are not being tracked in our version history. And that is correct because we actually don't have a version history.
+So our next step is to create our first version and we have to do two things to make this happen. The first thing we have to
+do is to pick which changes we want in our next version, and to do that we're going to use this
+command: git add. So git actually allows us to pick
+which changes we want in our next version. So we actually don't have to have both of these in the next version, we can
+actually just pick config.js by adding it like this. So if we give
+this command, git will only put this in the next version and this src folder will be left out. On the
+other hand, if I give a folder to git add, it's going to add all of the files inside the folder including any
+subfolders. So for our first example let's just add both of these into the next version. And a shortcut for doing this
+is git add dot. So the dot in command line represents the current
+folder that the command line is running in. And if you remember at the beginning when we started up the command line,
+we changed the folder that the command line is running in to this folder, which is this folder that contains all of our code.
+So if i say dot here, we're going to add everything in here including any subfolders. So that's a good shortcut you can use if you want to
+add everything into the next version. So we're going to press enter to run this command, and now we're going to run git status
+again to verify that it worked. So now you can see we have two new files
+that are ready to be put in our version history. So remember that git add doesn't actually create a new version it just
+lets us pick which changes we want in the next version. So to create a new version we're going to use another git command
+which is git commit dash m. So a version in git
+is known as a commit as this tutorial progresses I'm going to be using the words commit and commit history instead of version and version history
+just to help you get familiar with the git terminology. But for now i'm going to use version just because we're comparing with the
+Google Docs version history feature. So dash m here means we are attaching a message to this commit. So you always want to attach a message
+to a commit just to describe what you changed, so that when you're looking at this commit down the road you'll know exactly what happened.
+So since we're just practicing I'm going to give a very simple commit message, version one, and to run this command we're going to press enter.
+And that's it we just created the first version in our version history.
+So I realized that depending on your computer you might actually get an error message that looks like this: fatal. If you didn't get an error, then
+feel free to skip ahead. So this means that git is requiring you to configure an email and a name to get that will be
+attached to your commit along with your commit message. So we're going to explain right after what this means,
+but to get past this error you just have to run these two commands. So you're going to run git config global user dot email
+and then you're going to give your email, and we're also going to configure our name. So git config dash dash global
+user dot name and I'm going to put my name and you can put your name.
+And now we're going to run git commit again
+and that should work successfully. So you can see this was a lot of text output here we're going to go through it one by one.
+Viewing the History and Editing a Commit
+So in this section we're basically saying that two files were modified, and there were four lines of code added and if you look at our code we actually
+do have four lines of code so that's what this section describes. And in this section git is
+basically just warning us that we haven't configured a username or an email to git. So in addition to your message that you
+attach to each commit, you also want to attach your name and your email. That way, in case one of your changes breaks the website your
+teammates know who to blame. So that's what we're going to do next and all we have to do is actually just follow these commands.
+So git config dash global user dot name.
+So I'm going to put my name you can put your name. And git config global user.email simon at
+supersimple.dev So now that we've configured git let's, take a look at our version history.
+So we can do that using this command, git log. So this is our version history. You
+can see that we only have one version in here right now which is the one we just created, and here is our commit message here is
+the author's name and email. So notice that we configured the name and email after we created the commit
+so that's why we have a default name and email based on my computer. And that's it we just learned how to add new versions to our version history.
+Later on we'll learn how to go back and forth between previous versions of your code. But for now I do want to show you one
+other thing. So let's say that while you're creating this commit you make a mistake, so for example you misspell the commit message or you
+forgot to add a change. So how do we deal with that. Let's set this up and let's just add another change here
+change.js and let's say that we actually wanted this file to be in our previous commit
+what do we do? So the way to fix this is just to create our new version as normal.
+So we're going to do git add again and git commit dash m version 1. So here you can fix your spelling if you
+made a spelling mistake, and instead of just giving this we're also going to give dash dash amend. So what dash dash mn means is that
+instead of creating a new commit these changes are just going to go in the previous commit. So let's press enter to run this command,
+and now we're going to run git log again as you can see we still only have one version in our version history and
+the extra file that we created has been added to that version. So that's how you can edit a commit
+in case you mess up.
+Visualizing Git + Git Fundamentals
+Now I want to show you how you can visualize the changes that git is tracking inside your code editor. So a lot of
+editors have git integrations these days that allow you to see what changes git is tracking inside your
+editor instead of just in the command line. So I'll show you how that works. The editor i'm using is called
+visual studio code. You might be using a different code editor so you have to check if your editor supports git integration.
+So in vs code we can actually visualize what changes we have made since the previous version, so let's go ahead and make some changes here.
+I'm just going to change this to version 2 and here as well i'm going to change it to version 2. So now if i go into this section, this is
+the git section, we have our changes that we made to get here. So this is the same thing as running git
+status in the command line except we can actually visualize it in our code. So if i select one of these changes we can actually see
+what code we have changed in this file and also for this file. So you can see that it can be really useful if you're working on a big
+feature and you instead of two files here you have like 20 different files and you can see exactly which code that
+you changed. So this editor also allows us to run some git commands for us, so for example if I want to git add this file,
+I can actually press this plus button instead of going to the command line and running git add myself. If i want to add this file, I just have
+to click the plus button here, and if I want to do git add dot then the equivalent is just clicking this button here. So it makes it
+a little bit easier to run git commands, just from your code editor. So you might have noticed that when we ran git add dot, the changes were placed in
+Staging Area & Working Area
+this area called staged changes. So this is known as the staging area. This is basically where git puts
+all of the changes that we have picked using git add, that we want to go into the next version. Otherwise we might forget. And then under
+the staging area is all of the changes that we are currently working on, but we haven't used git add yet. So this area
+is called the working area, so all of your changes start off in the working area. So let's make a simple change right now
+just to visualize it. So now you can see that that change
+starts off in the working area, and then when I run git add, it's going to add it to the staging area. So one other thing I want to show you
+about the staging area is that let's say that we go ahead and modify this file again. So let's go into config and let's have
+another simple modification, save it, we'll go back. So you'll notice
+that config.js is now both in the working area and in the staging area. So how does that work? So the way that git works is that
+it actually tracks changes, not files. So even though we git added the file config.js to the staging area,
+the second change hasn't been added yet because git fundamentally tracks changes. So that's why it can appear in both
+places. So let's go ahead and add these two files to the staging area, and you'll notice that it actually merges the two changes together.
+So that's just some foundational knowledge about how git works. You're going to be using the staging area a lot so it's pretty useful to know
+some of these facts about the staging area as well as the working area. So the last thing I want to show you about these
+features is how to take changes out of our staging area and how to reset our working area. So
+let's start with staging first. So to take changes out of the staging area our code editor might provide a convenient button in its git integration
+and my code editor has one right here. So all I have to do is click this button, and it will take the change out of the staging area. So now let's also learn the
+git command for doing this. The command for doing this is: git reset.
+So reset works the same way as add. If we give it a file name, like reset config.js, it will only take config.js out of the staging area. If we
+give it a folder, it will take all of the files in the folder including any subfolders and take all of that out of the staging
+area. So remember a shortcut that we can use is git reset dot. So dot here represents our current folder
+which is this folder that contains all of our code. So if we do git reset dot it will take all of the changes out of the staging
+area. So let's go ahead and run this command. So now all of our changes are in the working area, and we can also reset the
+changes in our working area using another git command. And that command is git checkout dash dash, and this works the same way as
+git add and git reset. We can give it a file name which will
+undo all the changes to this file in the working area, or we can give it dot which will remove all of these changes. So for this time
+let's go back into our code editor, and use the git integration to do this. So if I click this button, this is the same thing as
+doing, so we reset change.js, this is the same thing as doing git checkout dash dash change.js.
+And if I click the button up here, this is the same as doing git checkout dash
+dash dot. So you can see how a git integration in your code editor can really make your life easier when you're working with git.
+So now that we learned the fundamentals of git and how to create versions in our version history, we're going to move on and create the
+other features that we find in the Google Docs version history.
+Completing the Version History
+Now we're going to create two more versions and add them to our version history so that later we can learn how to go back to a previous version of our code. So if you want some practice you can
+actually pause the video right now and try to create two more versions on your own. So it's the same thing that we did when
+we created our first version. All right so i'll do it right now for my code. So the first thing we're going to do is
+just make some changes, and then we will pick the changes that we want in our next version. So git add dot and then we're going to create the
+commit with a message. I'm just going to call this version 2 just because we're practicing.
+Now I'm going to create another commit or another version by first modifying the code. I'm going to add the changes that I made,
+and I'm going to pick these changes to put in the next commit. Then just create another commit with git commit. And now if I run git log,
+you'll see that we now have three versions in our version history. And now we're ready to learn how to switch between different versions.
+So you might have noticed that one big difference between Google Docs and git is that Google Docs automatically creates versions of your document for
+you. So every once in a while it'll save a version and you can go back to it later. But for git, however we have to create
+our versions manually. So you might be wondering why are we still creating our versions manually, why can't we automate this?
+So the problem with code is that until you finish your code, it probably doesn't work so we don't really want to be automatically creating
+versions of our code that don't work. For Google Docs it doesn't really matter if the thing's finished or not,
+it's just a bunch of words and sentences. So you're not going to get errors from a half finished document. That's not the same with half finished
+code. So that's why we always create versions manually with git we want to make sure that a code is good to go before we put it in our version
+history.
+Viewing Previous Versions of the Code
+So now that we actually have a version history we're going to learn how to go back and view a previous version of our code. So the
+git command for doing that is git checkout and now we have to tell
+git which version we want to go back to, so let's say that we want to go back to this version, version 2.
+So in order to tell git that we want to go back to this version we have to give it this big long string. This is known as
+the commit hash, it's basically the id of this commit or this version so what we'll do is we're going to copy
+this commit hash and we're going to paste it to git checkout. And that's it! Now if we run this command
+we are back to version 2. If we look at our code, you can see that we are back to version two of our code.
+And that's as simple as it gets. We just have to run git checkout, and we'll go back to previous version of our code. So the changes we made are really simple,
+but you can imagine that if we had a big feature where we changed 20 or 30 different files this is really powerful for changing
+all of those files back to their previous version. Now let's go back to our command line and we're going to run git log to check
+the state of our version history. So as you can see we only have two commits here right now, and the reason for that is that git log
+only shows the current commit as well as all the commits behind the current commit, but not any commits in front of it. So in order to show all
+of the commits in our version history we're gonna do git log dash dash all. And that will show you the three
+different versions that we had earlier. So you might notice that this word head, is now beside version two. So if we
+scroll up to our previous version history we can see that head used to be beside version 3. So this word head here
+this is telling us which version we are currently viewing. So in Google Docs when you're viewing a previous version that version will
+usually just be highlighted, but in the command line we can't really highlight stuff so that's why we use this word head
+to indicate which version we are currently viewing. So now let's get a little bit more practice we're going to switch
+to the first version that we had in our version history. So pause the video if you want to do it yourself first but now i'm going to do
+it together. So the command that we need is git checkout, and remember we need to tell git the
+commit hash that we want to go to so we're gonna copy this and paste it here, and then we're gonna run this command.
+So now we are on version one. If we check our code, we can see that indeed our code is back to version one, and we can check the other file,
+both of our files are back to version one, and if we go back and we run git log dash dash all, we see that head is now beside our first
+version. So that's how you go back and view previous versions of your code.
+Restoring Code to a Previous Version
+The last feature we're going to recreate from the Google Docs version history is the restore this version button, which will restore the document
+back to a previous version. Let's learn how to do that feature except using git. So one thing that we might be tempted to try,
+is that we'll look at our code and realize that we've already been restored back to what it was at version one. So we think all we have to do is start
+modifying it and creating new versions as usual. So let's give that a try and see what happens. So I'm going to do a simple
+update here, and then I'm going to do the usual git add
+and then create a new commit on top of the version 1 commit.
+I'm going to call this version 1 updated, and now if we run git log dash dash all
+we can see that everything appears to be working fine. We have our old version 3 commit here and we now have this new version 1
+updated at the top and this one was built off of this one so we restored our code back to version 1
+and then we restarted from version one. Unfortunately this is not exactly what we want. So the way that git works is that if you
+Intro to Git Branching
+go back to a previous version and you start adding new versions on top of that previous version, you'll notice that the git history is
+gonna start branching off of that previous version, and this is not the way it works in Google Docs version history.
+Google Docs basically takes whatever your document was at that time, and then just copies it over to the current document.
+So this is not exactly what we want. Now I do want to show you how you can view the branching effect in your command line,
+and you can do it with another command. So the first thing you'll notice is that we're no longer in the command line because the git
+log is way too long, and so if you try to type a command here it won't work. So to exit out of this view we're going to press q for quit.
+And now we're going to run git log again except this time we're going to add dash
+dash graph. So if you add a dash dash graph, it's going to start showing you the branching effect in your version history. So we're going
+to run this command and now you can see we have two branches of commits. So the first branch is here, which is
+what we had earlier and now we have the second branch which is built off of our first version. So this is what happens when you
+simply go back to your previous version and then you start building off of that version. So this is a feature in git called
+branching, and we're going to learn a lot more about branching later but for right now since we're trying to recreate Google Docs version history,
+this isn't exactly what we want. So let's quit out of this view by pressing q and we're going to learn the actual command
+for doing the exact same thing that Google Docs does. The first thing we're going to do is we're going to go back to the
+previous branch of commits which is here. So you'll notice that this commit also has a word beside it. Mine is called master. Depending on which
+version of git you have it might also be called main. So this is known as a branch name, and branch name helps us in two ways. The
+first way is that it makes it really easy to switch to another commit, so instead of doing git
+checkout and copy pasting this long commit hash and trying to remember it we can just do git checkout master. And the second thing that a branch name
+helps us with is that it always points to the latest commit in the branch, so if I add another commit to this branch up here,
+master will point to that commit. So this is an easy way to switch to the latest commit in any given branch.
+So we'll learn more about branches later as I said but for now just know that you can git checkout to a branch name instead of
+just git checkout the commit hash. So let's run this and go back to our previous branch, and now if we run git
+log dash dash all dash dash graph, you can see that we are now back to our
+main branch of commits that we had before. Now let's continue recreating that restore version feature from Google Docs.
+Restoring Code like Google Docs
+So there's actually a git command for doing this, and that command is git checkout, and we have to tell git two things: the
+first thing we have to tell git is which version we want to restore from. So let's say that we want to restore from version one.
+We're gonna take this commit hash, copy it and paste it here, and the second thing we're going to tell git is which files we want to restore.
+So this works the same way as git add and git reset. We can give an individual file like this, config.js,
+and it will restore the contents of config.js back to what it was in version one without doing any sort of branching or
+moving the head back to version one. So that's how it works so remember for git add you can also give it a folder name.
+We can also do the same thing here so if we do git checkout hash and then src, it will restore all the files in the
+src folder including any subfolders back to their contents in this version. So remember that we can also do
+dot, and this will restore all the code in this folder. So let's do that. We're going to press enter to
+run this command, and now you'll see that config.js is back to what it was in
+version one and index.js is back to what it was in version one. And if we run git log dash dash all
+dash dash graph to see our version history, you'll notice that head has not moved back to version one. So if we add another commit onto this
+it's not going to start branching our version history like we had before. So this is how the Google Docs restore version feature works,
+we're just taking the contents of the previous version and then putting it and pasting it in the current version. And this is the equivalent git command
+for doing that. And now let's complete this exercise by adding these changes to our version history.
+So first let's run git status, and you'll notice that when we do git checkout to restore the contents of the file to the previous
+version it actually automatically adds it in the staging area for us. So all we have to do is git commit dash m
+and give our commit message as usual. So I'm going to call it version 1 restored,
+and now we're going to do git log dash dash all and graph just to make sure that we don't have any branching happening.
+And there you go, this is how we recreate the restore version feature from the Google Docs history.
+Extra Feature 1: Git Aliases
+So I just want to say congratulations! Because we just recreated the version history feature of google docs and Microsoft Word
+using git. And now that we're done comparing git with Google Docs version history, for the rest of the tutorial I'm going
+to be using the words commit and commit history, just to help you get familiar with the git terminology. So we finished the main project of
+recreating Google Docs version history using git, so now I'm going to show you some miscellaneous features of git that
+you'll find useful. So the first feature I'm going to show you is like shortcuts. So instead of typing git status,
+instead, I can type git s and it will do the same thing. So this is called aliases, and to set up an alias here's the git command.
+git config dash dash global alias dot. And then you're going to give
+the sort of shortcut that you want to use. So I'm going to use the shortcut, s, and then I'm going to use the full command here to tell git what s
+should stand for. So s is going to stand for status, so next time when I type git s, git is actually going to run git status.
+So that's just a way to save you some typing and to make things go faster when you're working with git. So I'll share with you some of the
+aliases that I use, one of them is git config global alias
+dot cm, and I use this to represent commit dash m.
+And another one that's useful is git config global alias dot co, and use that to stand for
+checkout. So now instead of doing git commit dash m I can just do git cm. So feel free to use the aliases that I
+use or create your own. So the second extra feature I want to show you is how to ignore certain files from being added to your version history.
+Extra Feature 2: Git Ignore
+So this usually happens if you have a file like secret dot txt and inside this file there's a bunch of sensitive information,
+maybe some passwords, and you don't really want to put this in your version history because it will be saved
+forever. So what you can do is you can actually add a new file called dot git ignore, and this is going to tell git
+which files you want to ignore and not add into the version history. So we're going to put secrets dot txt into this file and then when we run git
+status you can see that because we have a dot git ignore, and inside we specified we want to
+ignore this file, git is not tracking this file for changes. It's not going to add it to our version history.
+So this dot ignore file is actually a file that you should add it to your version history, so we're going to add it right now. So
+git add dot, git commit dash m add git ignore. And that's it! That's how you prevent
+certain files from being tracked by git and being added to your version history. So the third and final extra feature I'm going to show you is how to completely
+Extra Feature 3: How to Remove Git
+remove git from your project. So first of all let's create a copy of our project because we'll need it later, and we don't
+want to remove git right now. So we're going to paste that and I'm just going to call this git tutorial 2, and now we're going to open
+a new command line and make sure that you change directory
+into this folder that contains a copy of all our code, git
+tutorial 2, and let's run git log again just to make sure that git is
+still in the copy of our folder. That's good so to exit this we're going
+to press q for quit, and now to remove git from this project.
+All we have to do is give this command: rm rf dot git. So all of the data in git, including all of our commands, our changes
+and our version history, is saved in a folder called dot git, and if we just delete this folder, then we will remove git from our project.
+And this rm -rf command basically removes this folder and everything inside this folder. So let's go ahead and run this command.
+And now let's go ahead and run git log again. And you'll see that this is no longer a git repository.
+So a repository just means a folder that is being tracked by git, and that is how you remove git completely from your project.
+Thanks for watching we successfully recreated Google Docs version history feature for our code using git. In the next section of this
+Git Tutorial Part 2
+tutorial we're going to learn how to create an online backup of our code using github, and we're going to learn a lot more about github features. My name is Simon from supersimple.dev I want to make a
+tech career possible for anyone. If you have any questions or comments, please leave them down below. Remember there is a cheat sheet
+listing all the commands that I taught in this tutorial below, as well. And you can always contact me at supersimple.dev/feedback
+I'll see you in the next one.
